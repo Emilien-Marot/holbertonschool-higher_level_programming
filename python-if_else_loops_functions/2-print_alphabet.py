@@ -1,3 +1,5 @@
 #!/usr/bin/python3
+string = ""
 for char in range(97, 123):
-    print(f"{chr(char)}", end="")
+    string += chr(char)
+print(f"{string}", end="")
