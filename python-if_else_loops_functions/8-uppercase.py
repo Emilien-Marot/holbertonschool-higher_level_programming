@@ -5,5 +5,5 @@ def uppercase(str):
             num = ord(char) + (ord("A") - ord("a"))
         else:
             num = ord(char)
-        print(chr(num), end="")
+        print("{}".format(chr(num)), end="")
     print("")
