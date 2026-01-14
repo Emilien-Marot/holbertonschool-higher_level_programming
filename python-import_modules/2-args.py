@@ -3,7 +3,7 @@ from sys import argv
 if __name__ == "__main__":
     arg_end = "s:"
     if len(argv) == 1:
-        arg_end = '.'
+        arg_end = 's.'
     elif len(argv) == 2:
         arg_end = ':'
     print("{} argument{}".format(len(argv) - 1, arg_end))
