@@ -4,17 +4,17 @@ if __name__ == "__main__":
     from calculator_1 import add, sub, div, mul
     if len(argv) == 4:
         op = argv[2]
-        if argv[2] in ("+","-","*","/"):
+        if argv[2] in ("+", "-", "*", "/"):
             a = int(argv[1])
             b = int(argv[3])
             if op == "+":
-                res = add(a,b)
+                res = add(a, b)
             elif op == "-":
-                res = sub(a,b)
+                res = sub(a, b)
             elif op == "*":
-                res = mul(a,b)
+                res = mul(a, b)
             else:
-                res = div(a,b)
+                res = div(a, b)
             print(f"{a} {op} {b} = {res}")
         else:
             print("Unknown operator. Available operators: +, -, * and /")
