@@ -2,13 +2,13 @@
 def roman_to_int(roman_string):
     dict_rom = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
     if roman_string == None or type(roman_string) != str or len(roman_string) == 0:
-        return None
+        return 0
     i = False
     val = 0
     prev = None
     for letter in roman_string:
         if letter not in dict_rom.keys():
-            return None
+            return 0
         digit = dict_rom[letter]
         if prev != None:
             if prev < digit:
