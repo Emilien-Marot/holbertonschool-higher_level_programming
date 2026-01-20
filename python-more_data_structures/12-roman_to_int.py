@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
     dict_rom = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
-    if roman_string == None or len(roman_string) == 0:
+    if roman_string == None or type(roman_string) != str or len(roman_string) == 0:
         return None
     i = False
     val = 0
