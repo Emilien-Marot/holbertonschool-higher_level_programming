@@ -1,5 +1,12 @@
 #!/usr/bin/python3
+'''
+and one comment
+'''
+
 def matrix_divided(matrix, div):
+    '''
+    and another one
+    '''
     len_line = None
     err = "matrix must be a matrix (list of lists) of integers/floats"
     new_matrix = []
