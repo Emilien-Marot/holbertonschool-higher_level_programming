@@ -21,6 +21,10 @@ TypeError: a must be an integer
 Traceback (most recent call last):
     ...
 OverflowError: (34, 'Numerical result out of range')
+>>> add_integer(10, 10.0**10000)
+Traceback (most recent call last):
+    ...
+OverflowError: (34, 'Numerical result out of range')
 >>> add_integer(5, float("nan"))
 Traceback (most recent call last):
     ...
