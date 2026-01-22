@@ -21,6 +21,8 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 Traceback (most recent call last):
     ...
 TypeError: div must be a number
+>>> matrix_divided([[0,2,4],[6,8,10],[12,14,16]], float('inf'))
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
 >>> matrix_divided([[0,2,4],[6,8,10],[12,14,16]], 0)
 Traceback (most recent call last):
     ...
