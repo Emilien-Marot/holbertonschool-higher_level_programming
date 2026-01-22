@@ -1,0 +1,21 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("a few questions: -who are you?-where are you going? thank you for answering. bye")
+a few questions:
+<BLANKLINE>
+-who are you?
+<BLANKLINE>
+-where are you going?
+<BLANKLINE>
+thank you for answering.
+<BLANKLINE>
+bye
+>>> text_indentation("")
+
+>>> text_indentation(12.6)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+>>> text_indentation()
+Traceback (most recent call last):
+    ...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
