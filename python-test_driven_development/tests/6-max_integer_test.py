@@ -9,6 +9,7 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([]), None)
         self.assertEqual(max_integer([1]), 1)
         self.assertEqual(max_integer([1,5,2,3,4]), 5)
+        self.assertEqual(max_integer([5,4,3,2,1]), 5)
         self.assertEqual(max_integer("qwerty"), 'y')
 
     def test_invalid(self):
