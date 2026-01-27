@@ -34,10 +34,10 @@ class Node:
         self.next_node = next_node
 
     def list(self):
-        str_list = f"{self.data}"
+        str_list = f"{self.data}\n"
         if self.next_node is not None:
             next_val = self.next_node.list()
-            str_list += f"\n{next_val}"
+            str_list += f"{next_val}"
         return str_list
 
     def insert(self, value):
@@ -61,7 +61,7 @@ class SinglyLinkedList:
 
     def __str__(self):
         if self.__head is None:
-            return "\n"
+            return ""
         return self.__head.list()
 
     def sorted_insert(self, value):
