@@ -49,7 +49,8 @@ class Rectangle:
         if self.height == 0 or self.width == 0:
             return ""
         for line in range(0, self.height):
+            if line != 0:
+                str_rect += "\n"
             for column in range(0, self.width):
                 str_rect += "#"
-            str_rect += "\n"
         return str_rect
