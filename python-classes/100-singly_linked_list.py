@@ -61,7 +61,7 @@ class SinglyLinkedList:
 
     def __str__(self):
         if self.__head is None:
-            return ""
+            return "\n"
         return self.__head.list()
 
     def sorted_insert(self, value):
