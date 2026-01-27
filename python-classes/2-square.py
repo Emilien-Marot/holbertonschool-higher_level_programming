@@ -6,7 +6,7 @@ godzilla vs king kong - ERB
 
 class Square:
     '''
-    Docstring for Square 2: Electric Boogaloo
+    Docstring for Square 3: tokyo drift
     '''
 
     def __init__(self, size=0):
