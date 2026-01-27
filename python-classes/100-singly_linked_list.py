@@ -34,10 +34,10 @@ class Node:
         self.next_node = next_node
 
     def list(self):
-        str_list = f"{self.data}\n"
+        str_list = f"{self.data}"
         if self.next_node is not None:
             next_val = self.next_node.list()
-            str_list += f"{next_val}"
+            str_list += f"\n{next_val}"
         return str_list
 
     def insert(self, value):
