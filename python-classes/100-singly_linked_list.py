@@ -25,7 +25,6 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         if value is not None and not isinstance(value, (Node)):
-            print(f"{type(value)}")
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
@@ -41,7 +40,6 @@ class Node:
         return str_list
 
     def insert(self, value):
-        print(f"type: {type(self.next_node)}")
         if self.next_node is None:
             self.next_node = Node(value)
         elif self.next_node.data >= value:
