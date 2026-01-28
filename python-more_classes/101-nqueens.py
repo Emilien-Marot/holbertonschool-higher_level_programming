@@ -23,6 +23,7 @@ def place_queen(list_queen_init, line, size):
         else:
             place_queen(list_queen, line + 1, size)
 
+
 if len(sys.argv) != 2:
     print("Usage: nqueens N")
     exit(1)
