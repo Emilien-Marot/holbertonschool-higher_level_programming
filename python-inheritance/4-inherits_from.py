@@ -10,4 +10,6 @@ def inherits_from(obj, a_class):
     :param obj: Description
     :param a_class: Description
     '''
-    return type(obj).__name__ != a_class.__name__ and issubclass(type(obj), a_class)
+    type_obj = type(obj)
+    name_type = type_obj.__name__
+    return name_type != a_class.__name__ and issubclass(type_obj, a_class)
