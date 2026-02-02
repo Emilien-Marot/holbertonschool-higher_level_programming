@@ -7,6 +7,9 @@ from math import pi
 
 
 class Shape(ABC):
+    '''
+    Docstring for Shape
+    '''
     @abstractmethod
     def area(self):
         pass
@@ -17,6 +20,9 @@ class Shape(ABC):
 
 
 class Circle(Shape):
+    '''
+    Docstring for Circle
+    '''
     def __init__(self, radius):
         self.__radius = radius
 
@@ -28,6 +34,9 @@ class Circle(Shape):
 
 
 class Rectangle(Shape):
+    '''
+    Docstring for Rectangle
+    '''
     def __init__(self, width, height):
         self.__width = width
         self.__height = height
@@ -40,5 +49,9 @@ class Rectangle(Shape):
 
 
 def shape_info(shape):
+    '''
+    Docstring for shape_info
+    :param shape: Description
+    '''
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
