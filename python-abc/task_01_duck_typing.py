@@ -27,7 +27,7 @@ class Circle(Shape):
         self.__radius = radius
 
     def area(self):
-        return pi * self.__radius * self.__radius
+        return pi * self.__radius * abs(self.__radius)
 
     def perimeter(self):
         return pi * 2 * self.__radius
