@@ -9,14 +9,13 @@ class CountedIterator:
     Docstring for CountedIterator
     '''
     def __init__(self, object):
-        print(object)
         self.object = iter(object)
         self.counter = 0
 
     def __next__(self):
+        val = next(self.object)
         self.counter += 1
-        print(self.counter)
-        return next(self.object)
+        return val
 
     def get_count(self):
         return self.counter
