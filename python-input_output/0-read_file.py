@@ -10,6 +10,6 @@ def read_file(filename=""):
     :param filename: Description
     '''
     with open(filename, encoding="utf-8") as file:
-        print(file.read())
+        print(file.read(), end="")
     if not file.closed:
         file.close()
