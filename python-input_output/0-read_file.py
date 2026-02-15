@@ -9,6 +9,7 @@ def read_file(filename=""):
     Docstring for read_file
     :param filename: Description
     '''
-    file = open(filename, 'r', encoding="utf-8")
-    print(file.read())
-    file.close()
+    with open(filename, encoding="utf-8") as file:
+        print(file.read())
+    if not file.closed:
+        file.close()
