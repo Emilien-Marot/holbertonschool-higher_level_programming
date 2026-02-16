@@ -10,5 +10,4 @@ def convert_csv_to_json(filename):
         with open('data.json', mode='w', newline='', encoding='utf-8') as file:
             json.dump(file_content, file)
     except Exception:
-        print(file_content)
         return False
