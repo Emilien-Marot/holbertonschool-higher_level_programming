@@ -7,7 +7,7 @@ Docstring for python-input_output.0-read_file
 def pascal_triangle(n):
     '''
     Docstring for pascal_triangle
-    
+
     :param n: Description
     '''
     if n <= 0:
@@ -24,7 +24,7 @@ def pascal_triangle(n):
 def pascal_line(line_up):
     '''
     Docstring for pascal_line
-    
+
     :param line_up: Description
     '''
     line = [line_up[0]]
