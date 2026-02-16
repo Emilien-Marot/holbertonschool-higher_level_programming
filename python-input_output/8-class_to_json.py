@@ -9,5 +9,4 @@ def class_to_json(obj):
     Docstring for read_file
     :param filename: Description
     '''
-    import json
-    return json.dumps(obj.__dict__)
+    return obj.__dict__
