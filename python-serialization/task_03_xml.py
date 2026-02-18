@@ -19,6 +19,7 @@ def serialize_to_xml(dictionary, filename):
     age.text = dictionary["age"]
     city.text = dictionary["city"]
     tree = ET.ElementTree(data)
+    ET.indent(tree, "    ")
     tree.write(filename)
 
 
