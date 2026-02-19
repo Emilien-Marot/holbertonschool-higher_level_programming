@@ -23,7 +23,7 @@ class MyHTTPRequestHandler (http.server.BaseHTTPRequestHandler):
         elif self.path == "/status":
             response = "OK"
         else:
-            response = "404 Not Found"
+            response = "Endpoint not found"
             response_code = 404
         self.send_response(response_code)
         if json_page:
