@@ -42,6 +42,7 @@ def add_user():
         abort(409)
     users.update(
         {dict_res["username"]: {
+            "username": dict_res["username"],
             "name": dict_res["name"],
             "age": int(dict_res["age"]),
             "city": dict_res["city"]}})
