@@ -9,25 +9,25 @@ users = {}
 
 @app.route("/test/1")
 def test1():
-    r = rq.post('http://localhost:5000/add_user', data ={"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"})
+    r = rq.post('http://localhost:5000/add_user', json={"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"})
     return r.text, 200
 
 
 @app.route("/test/2")
 def test2():
-    r = rq.post('http://localhost:5000/add_user', data ={"username": "john", "name": "John", "age": 30, "city": "New York"})
+    r = rq.post('http://localhost:5000/add_user', json={"username": "john", "name": "John", "age": 30, "city": "New York"})
     return r.text, 200
 
 
 @app.route("/test/3")
 def test3():
-    r = rq.post('http://localhost:5000/add_user', data ={"name": "John", "age": 30, "city": "New York"})
+    r = rq.post('http://localhost:5000/add_user', json={"name": "John", "age": 30, "city": "New York"})
     return r.text, 200
 
 
 @app.route("/test/4")
 def test4():
-    r = rq.post('http://localhost:5000/add_user', data ={"username": "john", "age": 30, "city": "New York"})
+    r = rq.post('http://localhost:5000/add_user', json={"username": "john", "age": 30, "city": "New York"})
     return r.text, 200
 
 
@@ -55,9 +55,10 @@ def user(username):
 
 @app.post("/add_user")
 def add_user():
-    dict_res = request.form
+    dict_res = request.json
     list_key_req = ("name", "age", "city")
-    list_key_dict = request.form.keys()
+    print(f"json: {request.json}")
+    list_key_dict = dict_res.keys()
     if 'username' not in list_key_dict:
         return jsonify({"error": "Username is required"}), 400
     for key in list_key_req:
