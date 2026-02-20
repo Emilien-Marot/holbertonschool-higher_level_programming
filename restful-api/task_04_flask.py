@@ -4,7 +4,6 @@ import requests as rq
 
 
 app = Flask(__name__)
-if __name__ == "__main__": app.run()
 
 
 @app.route("/")
@@ -58,3 +57,6 @@ def page_not_found(error):
 @app.errorhandler(409)
 def username_exist(error):
     return jsonify({"error": "Username already exists"}), 409
+
+
+if __name__ == "__main__": app.run()
