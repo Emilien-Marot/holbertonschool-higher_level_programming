@@ -73,7 +73,7 @@ def add_user():
             "city": dict_res["city"]}
     users.update(
         {dict_res["username"]: new_user})
-    return {"message": "User added", "user": new_user}, 201
+    return jsonify({"message": "User added", "user": new_user}), 201
 
 
 @app.errorhandler(404)
