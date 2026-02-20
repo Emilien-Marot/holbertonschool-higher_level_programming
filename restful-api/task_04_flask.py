@@ -4,6 +4,13 @@ import requests as rq
 
 
 app = Flask(__name__)
+users = {}
+
+
+@app.route("/test")
+def home():
+    r = rq.post('https://httpbin.org/ / post', data ={'key':'value'})
+    return "test"
 
 
 @app.route("/")
