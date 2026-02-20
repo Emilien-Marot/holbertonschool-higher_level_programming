@@ -10,25 +10,25 @@ users = {}
 @app.route("/test/1")
 def test1():
     r = rq.post('http://localhost:5000/add_user', data ={"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"})
-    return r.text, 200
+    return jsonify(r.text), 200
 
 
 @app.route("/test/2")
 def test2():
     r = rq.post('http://localhost:5000/add_user', data ={"username": "john", "name": "John", "age": 30, "city": "New York"})
-    return r.text, 200
+    return jsonify(r.text), 200
 
 
 @app.route("/test/3")
 def test3():
     r = rq.post('http://localhost:5000/add_user', data ={"name": "John", "age": 30, "city": "New York"})
-    return r.text, 200
+    return jsonify(r.text), 200
 
 
 @app.route("/test/4")
 def test4():
     r = rq.post('http://localhost:5000/add_user', data ={"username": "john", "age": 30, "city": "New York"})
-    return r.text, 200
+    return jsonify(r.text), 200
 
 
 @app.route("/")
