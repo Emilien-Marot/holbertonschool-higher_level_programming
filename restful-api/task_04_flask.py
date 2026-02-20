@@ -10,25 +10,25 @@ users = {}
 @app.route("/test/1")
 def test1():
     r = rq.post('http://localhost:5000/add_user', data ={"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"})
-    return "test"
+    return "test", 100
 
 
 @app.route("/test/2")
 def test2():
     r = rq.post('http://localhost:5000/add_user', data ={"username": "john", "name": "John", "age": 30, "city": "New York"})
-    return "test"
+    return "test", 100
 
 
 @app.route("/test/3")
 def test3():
     r = rq.post('http://localhost:5000/add_user', data ={"name": "John", "age": 30, "city": "New York"})
-    return "test"
+    return "test", 100
 
 
 @app.route("/test/4")
 def test4():
     r = rq.post('http://localhost:5000/add_user', data ={"username": "john", "age": 30, "city": "New York"})
-    return "test"
+    return "test", 100
 
 
 @app.route("/")
@@ -58,13 +58,14 @@ def add_user():
     dict_res = request.form
     list_key_req = ("username", "name", "age", "city")
     list_key_dict = request.form.keys()
+    print(dict_res)
     if not set(list_key_req).issubset(list_key_dict):
         if 'username' not in list_key_dict:
             return jsonify({"error": "Username is required"}), 400
         return jsonify({"error": "Invalid JSON"}), 401
     print(dict_res["username"], users.keys())
     if dict_res["username"] in users.keys():
-        abort(409)
+        return jsonify({"error": "Username already exists"}), 409
     users.update(
         {dict_res["username"]: {
             "username": dict_res["username"],
@@ -77,11 +78,6 @@ def add_user():
 @app.errorhandler(404)
 def page_not_found(error):
     return jsonify({"error": "User not found"}), 404
-
-
-@app.errorhandler(409)
-def username_exist(error):
-    return jsonify({"error": "Username already exists"}), 409
 
 
 if __name__ == "__main__": app.run()
