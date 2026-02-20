@@ -9,21 +9,25 @@ users = {}
 
 @app.route("/")
 def home():
+    print("home")
     return "Welcome to the Flask API!"
 
 
 @app.route("/data")
 def data():
+    print("data")
     return jsonify(users)
 
 
 @app.route("/status")
 def status():
+    print("status")
     return "OK"
 
 
 @app.route("/users/<username>")
 def user(username):
+    print("user")
     if username in users.keys():
         return jsonify(users[username])
     abort(404)
@@ -31,6 +35,7 @@ def user(username):
 
 @app.post("/add_user")
 def add_user():
+    print("add_user")
     dict_res = request.form
     list_key_req = ("username", "name", "age", "city")
     list_key_dict = request.form.keys()
@@ -52,11 +57,13 @@ def add_user():
 
 @app.errorhandler(404)
 def page_not_found(error):
+    print("page_not_found")
     return jsonify({"error": "User not found"}), 404
 
 
 @app.errorhandler(409)
 def username_exist(error):
+    print("username_exist")
     return jsonify({"error": "Username already exists"}), 409
 
 
