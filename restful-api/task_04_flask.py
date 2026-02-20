@@ -66,13 +66,14 @@ def add_user():
     print(dict_res["username"], users.keys())
     if dict_res["username"] in users.keys():
         return jsonify({"error": "Username already exists"}), 409
-    users.update(
-        {dict_res["username"]: {
+    new_user = {
             "username": dict_res["username"],
             "name": dict_res["name"],
             "age": int(dict_res["age"]),
-            "city": dict_res["city"]}})
-    return request.form
+            "city": dict_res["city"]}
+    users.update(
+        {dict_res["username"]: new_user})
+    return new_user, 201
 
 
 @app.errorhandler(404)
