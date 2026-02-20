@@ -10,25 +10,25 @@ users = {}
 @app.route("/test/1")
 def test1():
     r = rq.post('http://localhost:5000/add_user', data ={"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"})
-    return "test", 100
+    return r.text, 200
 
 
 @app.route("/test/2")
 def test2():
     r = rq.post('http://localhost:5000/add_user', data ={"username": "john", "name": "John", "age": 30, "city": "New York"})
-    return "test", 100
+    return r.text, 200
 
 
 @app.route("/test/3")
 def test3():
     r = rq.post('http://localhost:5000/add_user', data ={"name": "John", "age": 30, "city": "New York"})
-    return "test", 100
+    return r.text, 200
 
 
 @app.route("/test/4")
 def test4():
     r = rq.post('http://localhost:5000/add_user', data ={"username": "john", "age": 30, "city": "New York"})
-    return "test", 100
+    return r.text, 200
 
 
 @app.route("/")
@@ -73,7 +73,7 @@ def add_user():
             "city": dict_res["city"]}
     users.update(
         {dict_res["username"]: new_user})
-    return new_user, 201
+    return {"message": "User added", "user": new_user}, 201
 
 
 @app.errorhandler(404)
