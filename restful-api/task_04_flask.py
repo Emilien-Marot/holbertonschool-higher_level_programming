@@ -7,27 +7,47 @@ app = Flask(__name__)
 users = {}
 
 
+@app.route("/test/1")
+def test1():
+    r = rq.post('http://localhost:5000/add_user', data ={"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"})
+    return "test"
+
+
+@app.route("/test/2")
+def test2():
+    r = rq.post('http://localhost:5000/add_user', data ={"username": "john", "name": "John", "age": 30, "city": "New York"})
+    return "test"
+
+
+@app.route("/test/3")
+def test3():
+    r = rq.post('http://localhost:5000/add_user', data ={"name": "John", "age": 30, "city": "New York"})
+    return "test"
+
+
+@app.route("/test/4")
+def test4():
+    r = rq.post('http://localhost:5000/add_user', data ={"username": "john", "age": 30, "city": "New York"})
+    return "test"
+
+
 @app.route("/")
 def home():
-    print("home")
     return "Welcome to the Flask API!"
 
 
 @app.route("/data")
 def data():
-    print("data")
-    return jsonify(users)
+    return jsonify(list(users.keys()))
 
 
 @app.route("/status")
 def status():
-    print("status")
     return "OK"
 
 
 @app.route("/users/<username>")
 def user(username):
-    print("user")
     if username in users.keys():
         return jsonify(users[username])
     abort(404)
@@ -35,7 +55,6 @@ def user(username):
 
 @app.post("/add_user")
 def add_user():
-    print("add_user")
     dict_res = request.form
     list_key_req = ("username", "name", "age", "city")
     list_key_dict = request.form.keys()
@@ -57,13 +76,11 @@ def add_user():
 
 @app.errorhandler(404)
 def page_not_found(error):
-    print("page_not_found")
     return jsonify({"error": "User not found"}), 404
 
 
 @app.errorhandler(409)
 def username_exist(error):
-    print("username_exist")
     return jsonify({"error": "Username already exists"}), 409
 
 
