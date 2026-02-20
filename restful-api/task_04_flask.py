@@ -56,15 +56,13 @@ def user(username):
 @app.post("/add_user")
 def add_user():
     dict_res = request.form
-    list_key_req = ("username", "name", "age", "city")
-    list_key_dict = dict_res.keys()
-    req = jsonify(request)
-    raise TypeError(f"{req}")
-    if not set(list_key_req).issubset(list_key_dict):
-        if 'username' not in list_key_dict:
-            return jsonify({"error": "Username is required"}), 400
-        return jsonify({"error": "Invalid JSON"}), 400
-    print(dict_res["username"], users.keys())
+    list_key_req = ("name", "age", "city")
+    list_key_dict = request.form.keys()
+    if 'username' not in list_key_dict:
+        return jsonify({"error": "Username is required"}), 400
+    for key in list_key_req:
+        if key not in list_key_dict:
+            return jsonify({"error": "Invalid JSON"}), 400
     if dict_res["username"] in users.keys():
         return jsonify({"error": "Username already exists"}), 409
     new_user = {
