@@ -58,7 +58,8 @@ def add_user():
     dict_res = request.form
     list_key_req = ("username", "name", "age", "city")
     list_key_dict = dict_res.keys()
-    raise TypeError(request)
+    req = jsonify(request)
+    raise TypeError(f"{req}")
     if not set(list_key_req).issubset(list_key_dict):
         if 'username' not in list_key_dict:
             return jsonify({"error": "Username is required"}), 400
