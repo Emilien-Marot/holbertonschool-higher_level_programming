@@ -7,7 +7,6 @@ It describes the purpose of the entire script/module.
 
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-import sqlalchemy
 
 Base = declarative_base()
 
