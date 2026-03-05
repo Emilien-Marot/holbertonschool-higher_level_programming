@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This is a module-level docstring. 
+This is a module-level docstring.
 It describes the purpose of the entire script/module.
 """
 
