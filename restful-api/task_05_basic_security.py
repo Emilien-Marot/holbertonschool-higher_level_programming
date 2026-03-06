@@ -69,7 +69,7 @@ def login():
             valid = check_password_hash(user.get("password"), password)
     if valid:
         access_token = create_access_token(identity=username)
-        return jsonify(access_token=access_token)
+        return jsonify({"access_token": access_token})
     abort(401)
 
 
