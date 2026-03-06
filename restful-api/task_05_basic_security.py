@@ -13,7 +13,8 @@ users = {
 }
 basic_auth = HTTPBasicAuth()
 jwt_auth = HTTPTokenAuth(scheme='Bearer')
-app.config["JWT_SECRET_KEY"] = "secret"
+app.config["JWT_TOKEN_LOCATION"] = ["headers"]
+app.config["JWT_SECRET_KEY"] = "super-secret"
 jwt = JWTManager(app)
 
 
