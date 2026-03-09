@@ -8,8 +8,8 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required, ge
 
 app = Flask(__name__)
 users = {
-    "user1": {"username": "user1", "password": generate_password_hash("1234"), "role": "user"},
-    "admin1": {"username": "admin1", "password": generate_password_hash("12345"), "role": "admin"}
+    "user1": {"username": "user1", "password": generate_password_hash("password"), "role": "user"},
+    "admin1": {"username": "admin1", "password": generate_password_hash("password"), "role": "admin"}
 }
 basic_auth = HTTPBasicAuth()
 jwt_auth = HTTPTokenAuth(scheme='Bearer')
