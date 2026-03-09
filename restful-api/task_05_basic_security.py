@@ -82,8 +82,7 @@ def jwt_protected():
 @app.get("/admin-only")
 @jwt_required()
 def admin_only():
-    username = get_jwt_identity()
-    user = users.get(username)
+    user = get_jwt_identity()
     if user is not None and user.get("role") == "admin":
         return "Admin Access: Granted"
     return ({"error": "Admin access required"}), 403
