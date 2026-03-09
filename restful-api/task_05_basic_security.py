@@ -18,30 +18,6 @@ app.config["JWT_SECRET_KEY"] = "super-secret"
 jwt = JWTManager(app)
 
 
-@app.route("/test/user")
-def test1():
-    r = rq.post('http://localhost:5000/login', json={"username": "user1", "password": "1234"})
-    return "connection", 200
-
-
-@app.route("/test/admin")
-def test2():
-    r = rq.post('http://localhost:5000/login', json={"username": "admin1", "password": "12345"})
-    return "connection", 200
-
-
-@app.route("/test/none")
-def test3():
-    r = rq.post('http://localhost:5000/login', json={})
-    return "connection", 200
-
-
-@app.route("/test/false")
-def test4():
-    r = rq.post('http://localhost:5000/login', json={"username": "admin1", "password": "1234"})
-    return "connection", 200
-
-
 @basic_auth.verify_password
 def verify_password(username, password):
     user = users.get(username)
@@ -83,7 +59,7 @@ def jwt_protected():
 @jwt_required()
 def admin_only():
     user = get_jwt_identity()
-    if user is not None and user.get("role") == "admin":
+    if user.get("role") == "admin":
         return "Admin Access: Granted"
     return ({"error": "Admin access required"}), 403
 
@@ -91,6 +67,26 @@ def admin_only():
 @app.errorhandler(404)
 def page_not_found(error):
     return jsonify({"error": "User not found"}), 404
+
+@jwt.unauthorized_loader
+def handle_unauthorized_error(err):
+    return jsonify({"error": "Missing or invalid token"}), 401
+
+@jwt.invalid_token_loader
+def handle_invalid_token_error(err):
+    return jsonify({"error": "Invalid token"}), 401
+
+@jwt.expired_token_loader
+def handle_expired_token_error(err):
+    return jsonify({"error": "Token has expired"}), 401
+
+@jwt.revoked_token_loader
+def handle_revoked_token_error(err):
+    return jsonify({"error": "Token has been revoked"}), 401
+
+@jwt.needs_fresh_token_loader
+def handle_needs_fresh_token_error(err):
+    return jsonify({"error": "Fresh token required"}), 401
 
 
 if __name__ == "__main__": app.run()
