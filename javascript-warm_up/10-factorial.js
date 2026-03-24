@@ -8,5 +8,8 @@ function factorial (n) {
 }
 
 const args = process.argv;
-const a = parseInt(args[2]);
+let a = parseInt(args[2]);
+if (isNaN(a)) {
+  a = 1;
+}
 console.log(factorial(a));
