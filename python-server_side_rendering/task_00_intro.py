@@ -2,12 +2,6 @@ import os
 
 
 def generate_invitations(template: str, attendees):
-    if len(template) == 0:
-        print("Template is empty, no output files generated.")
-        return
-    if len(attendees) == 0:
-        print("No data provided, no output files generated.")
-        return
     if not isinstance(template, str) or not isinstance(attendees, list):
         print("test")
         return
@@ -15,6 +9,12 @@ def generate_invitations(template: str, attendees):
         if not isinstance(attendee, dict):
             print("test")
             return
+    if len(template) == 0:
+        print("Template is empty, no output files generated.")
+        return
+    if len(attendees) == 0:
+        print("No data provided, no output files generated.")
+        return
     id_max = 1
     while os.path.exists(f"output_{id_max}.txt"):
         id_max += 1
