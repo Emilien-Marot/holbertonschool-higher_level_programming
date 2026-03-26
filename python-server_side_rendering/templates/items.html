@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block content %}
+<h1>Items List</h1>
+<p>
+    {% if items|length > 0 %}
+        <ul>
+        {% for item in items %}
+            <li>{{ item }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+    No items found
+    {% endif %}
+</p>
+{% endblock %}
